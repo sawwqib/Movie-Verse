@@ -3,239 +3,164 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="https://www.imghippo.com/i/bNc1640Rpo.jpeg" type="image/x-icon">
-
-  <title>Tv Central</title>
+  <title>TV Central</title>
   <style>
-    body {
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+    :root {
+      --bg-primary: #121212;
+      --bg-secondary: #1E1E1E;
+      --text-primary: #FFFFFF;
+      --accent-color: #00E5FF;
+      --accent-hover: #18FFFF;
+    }
+
+    * {
       margin: 0;
-      font-family: 'Roboto', sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: linear-gradient(135deg, #1e293b, #0f172a);
-      color: #ffffff;
-      overflow: hidden;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    #content {
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .header {
       text-align: center;
-      animation: fadeIn 1s ease-in-out;
-      margin-top: 80px; /* Add space below the header */
+      padding: 30px 0;
+      background-color: var(--bg-secondary);
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .header h1 {
+      font-size: 2.5rem;
+      color: var(--accent-color);
+      font-weight: 600;
     }
 
     .button-container {
-      margin-bottom: 20px;
       display: flex;
       justify-content: center;
       gap: 15px;
-      flex-wrap: wrap;
+      margin-bottom: 30px;
     }
 
-    button {
-      padding: 12px 24px;
-      font-size: 16px;
-      font-weight: bold;
-      color: #fff;
-      background: linear-gradient(135deg, #4ade80, #22c55e);
-      border: none;
-      border-radius: 25px;
+    .button {
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+      border: 2px solid var(--accent-color);
+      padding: 10px 20px;
+      border-radius: 5px;
       cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     }
 
-    button:hover {
-      transform: translateY(-3px);
-      background: linear-gradient(135deg, #22c55e, #4ade80);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    .button:hover {
+      background-color: var(--accent-color);
+      color: var(--bg-primary);
     }
 
     #links {
-      margin: 20px 0;
-      font-size: 18px;
+      background-color: var(--bg-secondary);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
     }
 
     #links a {
-      color: #4ade80;
+      color: var(--accent-color);
+      display: block;
+      margin-bottom: 10px;
       text-decoration: none;
-      font-weight: bold;
       transition: color 0.3s ease;
+      word-break: break-all;
     }
 
     #links a:hover {
-      color: #7bff00;
+      color: var(--accent-hover);
     }
 
     form {
-      background: #1e293b;
+      background-color: var(--bg-secondary);
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      max-width: 400px;
-      margin: 0 auto;
     }
 
-    form label {
-      display: block;
-      margin-bottom: 8px;
-      color: #94a3b8;
-      font-size: 14px;
-    }
-
-    form input,
     form textarea {
-      width: 90%;
+      width: 100%;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      border: 1px solid var(--accent-color);
       padding: 10px;
       margin-bottom: 15px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      color: #000;
+      border-radius: 5px;
     }
 
     form button {
       width: 100%;
-      padding: 12px 20px;
-      font-size: 16px;
-      font-weight: bold;
-      color: #fff;
-      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      background-color: var(--accent-color);
+      color: var(--bg-primary);
       border: none;
-      border-radius: 25px;
+      padding: 10px;
+      border-radius: 5px;
       cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease;
     }
 
     form button:hover {
-      transform: translateY(-3px);
-      background: linear-gradient(135deg, #08f500, #04d115);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+      background-color: var(--accent-hover);
     }
-/* Body styles */
-body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
 
-        /* Popup background */
-        .popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out, visibility 0s 0.3s;
-        }
-
-        .popup-overlay.show {
-            visibility: visible;
-            opacity: 1;
-            transition: opacity 0.3s ease-in-out;
-        }
-
-        /* Popup content */
-        .popup-content {
-            background: #000000;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            max-width: 400px;
-            width: 100%;
-        }
-
-        /* Close button */
-        .close-btn {
-            background: #ff0000;
-            color: rgb(0, 0, 0);
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-
-        .close-btn:hover {
-            background: #cc0000;
-        }
-
-        /* Custom image style */
-        .popup-content img {
-            max-width: 100px;
-            max-height: 100px;
-            margin-bottom: 20px;
-        }
-        a {
-            text-decoration: none;
-            color: #22c55e;
-        }
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background-color: var(--bg-secondary);
+      color: var(--accent-color);
+    }
   </style>
 </head>
 <body>
+  <div class="header">
+    <h1>TV Central</h1>
+  </div>
 
-  
-  <div id="popup" class="popup-overlay">
-    <div class="popup-content">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9CsKYCuWbmud8kFOhxK-rq1pLmtGOogK05Q&s" alt="Custom Image">
-        <h2>Please Share</h2>
-        <p>Made With ❤️ By <a href="https://sawwqib.vercel.app">Saqib</a></p>
-        <button class="close-btn" onclick="closePopup()">Ok</button>
-    </div>
-</div>
-
-  <div id="content">
+  <div class="container">
     <div class="button-container">
-      <button onclick="toggleLinks(1)">Movies/Series</button>
-      <button onclick="toggleLinks(2)">Anime</button>
-      <button onclick="toggleLinks(3)">Manga</button>
-      <button onclick="toggleLinks(4)">Live Tv</button>
+      <button class="button" onclick="toggleLinks(1)">Movies/Series</button>
+      <button class="button" onclick="toggleLinks(2)">Anime</button>
+      <button class="button" onclick="toggleLinks(3)">Manga</button>
+      <button class="button" onclick="toggleLinks(4)">Live Tv</button>
     </div>
 
     <div id="links"></div>
 
     <form action="https://formspree.io/f/xzzzlbpr" method="POST">
-      
-      <label for="message">Message:</label>
-      <textarea name="message" id="message" rows="3" placeholder="Enter your message" required></textarea>
-      
-      <button type="submit">Send</button>
+      <textarea name="message" rows="4" placeholder="Enter your message" required></textarea>
+      <button type="submit">Send Message</button>
     </form>
   </div>
 
+  <div class="footer">
+    Made with ❤️ by Saqib
+  </div>
 
   <script>
-
     let currentVisibleLinks = null;
 
     function toggleLinks(buttonNumber) {
       const links = {
         1: ["http://primeflix-web.vercel.app", "https://www.vidbinge.com", "https://novafork.com", "https://catflix.su", "https://cinemadeck.com", "https://www.popcornmovies.to", "https://nepu.to", "https://www.rgshows.me", "https://broflix.cc", "https://freek.to", "https://www.cineby.ru", "https://rivestream.live", "https://fmovies-hd.to", "https://flixwave.watch", "https://bflix.sh", "https://faragski.com", "https://watch.autoembed.cc", "https://www.cinebook.xyz", "https://hydrahd.com"],
-        2: ["https://hianime.to", "https://yukiwatch.su", "https://aniwatchtv.to", "https://animetsu.cc", "https://kaido.to", "https://anicrush.to", "https://rivekun.rivestream.live", "https://kickassanime.am/anime", "https://gogoanime3.co",],
-        3: ["https://mangadex.org", "https://comick.io", "https://mangareader.to", "https://mangago.me", "https://mangafire.to", "https://allmanga.to", "https://mangakakalot.com", "https://asuracomic.net",],
-        4: ["https://thetvapp.to", "https://tv247.us", "https://usatvgo.live", "https://en12.sportplus.live", "https://the.streameast.app", "https://v2.sportsurge.net", ]
+        2: ["https://hianime.to", "https://yukiwatch.su", "https://aniwatchtv.to", "https://animetsu.cc", "https://kaido.to", "https://anicrush.to", "https://rivekun.rivestream.live", "https://kickassanime.am/anime", "https://gogoanime3.co"],
+        3: ["https://mangadex.org", "https://comick.io", "https://mangareader.to", "https://mangago.me", "https://mangafire.to", "https://allmanga.to", "https://mangakakalot.com", "https://asuracomic.net"],
+        4: ["https://thetvapp.to", "https://tv247.us", "https://usatvgo.live", "https://en12.sportplus.live", "https://the.streameast.app", "https://v2.sportsurge.net"]
       };
 
       const linkContainer = document.getElementById("links");
@@ -247,25 +172,9 @@ body {
         currentVisibleLinks = buttonNumber;
         linkContainer.innerHTML = links[buttonNumber]
           .map(link => `<a href="${link}" target="_blank">${link}</a>`)
-          .join("<br>");
+          .join("");
       }
     }
   </script>
-  <script>
-    // Function to show the popup when the page loads
-    window.onload = () => {
-        showPopup();
-    };
-
-    // Function to show the popup
-    function showPopup() {
-        document.getElementById("popup").classList.add("show");
-    }
-
-    // Function to close the popup
-    function closePopup() {
-        document.getElementById("popup").classList.remove("show");
-    }
-</script>
 </body>
 </html>
