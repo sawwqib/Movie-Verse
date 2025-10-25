@@ -1,1 +1,1 @@
-[![Repo Graph](https://github.com/{sawwqib}/{Movie-Verse}/graphs)
+[![Repo Graph](https://github.com/sawwqib/Movie-Verse/graphs)
